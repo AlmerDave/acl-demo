@@ -1,0 +1,69 @@
+/* Custom Styles for ACL Demo */
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f8f9fa;
+}
+
+.card {
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Spinning animation for loading */
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+.spin {
+    animation: spin 1s linear infinite;
+}
+
+/* Activity Log Styling */
+#activityLog {
+    font-size: 0.85rem;
+    line-height: 1.6;
+}
+
+/* Code blocks */
+pre code {
+    font-size: 0.9rem;
+}
+
+/* Bootstrap Icon sizing */
+.fs-1 {
+    font-size: 3rem !important;
+}
+
+/* Custom badge styles */
+.badge {
+    font-size: 0.9rem;
+    padding: 0.5rem 1rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .display-4 {
+        font-size: 2rem;
+    }
+    
+    
+/* Smooth border transition for auto-fill effect */
+#createCustomerForm input,
+#createCustomerForm select {
+    transition: border-color 0.3s ease;
+}
+
+/* Auto-fill button hover effect */
+.btn-light:hover {
+    background-color: #ffc107 !important;
+    color: #000 !important;
+    transform: scale(1.05);
+    transition: all 0.2s ease;
+}
+}

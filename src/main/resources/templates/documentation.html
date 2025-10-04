@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments/header :: header}"></head>
+<body>
+
+<nav class="navbar navbar-dark bg-dark navbar-expand-lg">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="/"><i class="bi bi-bank2"></i> ACL Pattern Demo</a>
+        <div class="collapse navbar-collapse">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item"><a class="nav-link" href="/">Demo</a></li>
+                <li class="nav-item"><a class="nav-link active" href="/documentation">Documentation</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="container my-5">
+    <h1 class="mb-4">Anti-Corruption Layer Pattern</h1>
+    
+    <div class="card mb-4">
+        <div class="card-body">
+            <h3><i class="bi bi-question-circle"></i> What is ACL?</h3>
+            <p>
+                The Anti-Corruption Layer (ACL) is a design pattern that acts as a translator 
+                between two subsystems that use different models or semantics. It prevents the 
+                "corruption" of the new system by legacy system constraints.
+            </p>
+        </div>
+    </div>
+    
+    <div class="card mb-4">
+        <div class="card-body">
+            <h3><i class="bi bi-exclamation-triangle"></i> The Problem</h3>
+            <ul>
+                <li>Legacy banking system with flat, denormalized tables</li>
+                <li>Need to migrate to modern, normalized database structure</li>
+                <li>Cannot break existing microservices during migration</li>
+                <li>Business operations must continue uninterrupted</li>
+            </ul>
+        </div>
+    </div>
+    
+    <div class="card mb-4">
+        <div class="card-body">
+            <h3><i class="bi bi-lightbulb"></i> The Solution</h3>
+            <h5>1. Smart Read (Query Pattern)</h5>
+            <pre class="bg-light p-3 rounded"><code>1. Try to read from NEW database
+2. If NOT found → Read from LEGACY database
+3. Transform legacy data to new format
+4. Return unified response</code></pre>
+            
+            <h5 class="mt-4">2. Dual Write (Create Pattern)</h5>
+            <pre class="bg-light p-3 rounded"><code>1. Receive new customer data
+2. Save to NEW database (normalized)
+3. Transform to legacy format
+4. Save to LEGACY database (backward compatibility)
+5. Confirm both writes successful</code></pre>
+        </div>
+    </div>
+    
+    <div class="card mb-4">
+        <div class="card-body">
+            <h3><i class="bi bi-diagram-3"></i> Architecture Diagram</h3>
+            <div class="text-center">
+                <img src="https://miro.medium.com/v2/resize:fit:1400/1*Z8Zf8Z8Z8Z8Z8Z8Z8Z8Z8Z.png" 
+                     alt="ACL Architecture" class="img-fluid" 
+                     style="max-width: 600px;">
+            </div>
+        </div>
+    </div>
+    
+    <div class="card">
+        <div class="card-body">
+            <h3><i class="bi bi-check-circle"></i> Benefits</h3>
+            <div class="row">
+                <div class="col-md-6">
+                    <ul>
+                        <li>✅ Zero downtime migration</li>
+                        <li>✅ No breaking changes to legacy services</li>
+                        <li>✅ Gradual migration path</li>
+                    </ul>
+                </div>
+                <div class="col-md-6">
+                    <ul>
+                        <li>✅ Easy rollback capability</li>
+                        <li>✅ Data consistency across systems</li>
+                        <li>✅ Independent evolution of models</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
