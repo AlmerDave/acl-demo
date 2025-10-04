@@ -8,11 +8,9 @@
 ![H2 Database](https://img.shields.io/badge/H2-In--Memory-blue?logo=database)
 ![License](https://img.shields.io/badge/license-MIT-green)
 
-[Live Demo](https://acl-demo.onrender.com) • [Documentation](#-live-demo-features)
-
 **A live, interactive demonstration of the Anti-Corruption Layer (ACL) pattern solving real-world database migration challenges in banking systems.**
 
-[Live Demo](#) • [Documentation](#-live-demo-features) • [Tech Stack](#-tech-stack) • [Getting Started](#-getting-started)
+[Live Demo](https://acl-demo.onrender.com) • [Documentation](#-live-demo-features)
 
 </div>
 
